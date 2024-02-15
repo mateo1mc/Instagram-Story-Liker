@@ -49,3 +49,16 @@ def check_logged_in(driver):
         print("!!! NOT Logged In !!!")
         return False
 
+
+def login(driver, username, password):
+    driver.get("https://www.instagram.com/accounts/login/")
+    time.sleep(2)
+
+    username_input = driver.find_element(By.CSS_SELECTOR, "input[name='username']")
+    password_input = driver.find_element(By.CSS_SELECTOR, "input[name='password']")
+
+    username_input.send_keys(username)
+    password_input.send_keys(password)
+    password_input.send_keys(Keys.RETURN)
+    time.sleep(5)
+
