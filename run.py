@@ -62,3 +62,28 @@ def login(driver, username, password):
     password_input.send_keys(Keys.RETURN)
     time.sleep(5)
 
+
+def like_stories(username, password, usernames):
+    # Set up ChromeDriver options
+    chrome_options = Options()
+    chrome_options.add_argument("--no-sandbox")
+    chrome_options.add_argument("--disable-dev-shm-usage")
+
+    # Set up ChromeDriver service
+    service = Service(ChromeDriverManager().install())
+
+    # Set up ChromeDriver instance
+    driver = webdriver.Chrome(service=service, options=chrome_options)
+
+    logged_in = check_logged_in(driver)
+
+    if not logged_in:
+        credentials = load_credentials()
+        if credentials is None:
+            login(driver, username, password)
+            save_credentials(username, password)
+        else:
+            username, password = credentials
+            login(driver, username, password)
+
+    logged_in = check_logged_in(driver)
