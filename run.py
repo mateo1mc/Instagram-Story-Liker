@@ -87,3 +87,54 @@ def like_stories(username, password, usernames):
             login(driver, username, password)
 
     logged_in = check_logged_in(driver)
+
+    # Like Stories Logic by @mateo1mc
+    for follower in usernames:
+        story_url = f"https://www.instagram.com/stories/{follower}"
+        driver.get(story_url)
+        time.sleep(2)
+
+        view_story_xpath = '//div[@role="button"][.="View Story"]'
+        like_button_xpath = '//div[@role="button"][contains(.,"Like")]'
+        next_button_xpath = '//div[@role="button"][contains(.,"Next")]'
+        notification_tab__xpath = '//span[contains(.,"Turn on notifications")]'
+        # home_button_xpath = '//span[text()="Home"]' # if notification_tab__xpath does not work
+
+        try:
+            # Check if the "View Story" button exists
+            view_story_button = driver.find_element(By.XPATH, view_story_xpath)
+            print("[TRUE] --> " + follower + " has updated the story.")
+            view_story_button.click()
+            time.sleep(2)
+            
+            # Loop to Like each Story
+            while True:
+                try:
+                    # Click the "Like" button
+                    like_button = driver.find_element(By.XPATH, like_button_xpath)
+                    like_button.click()
+                    print("You Liked " + follower + "'s Story Successfully!")
+                    time.sleep(2)
+                except NoSuchElementException:
+                    print("This story was Liked before!")
+
+                try:
+                    # Click the "Next" button
+                    next_button = driver.find_element(By.XPATH, next_button_xpath)
+                    next_button.click()
+                    print("Next Story!")
+                    time.sleep(2)
+                except NoSuchElementException:
+                    print("Next button not found.")
+
+                try:
+                    # Check if No more Stories and Exit the loop
+                    home_button = driver.find_element(By.XPATH, notification_tab__xpath)
+                    print("No more Stories for " + follower)
+                    break
+                except NoSuchElementException:
+                    print(15 * "-")
+
+        except NoSuchElementException:
+            print("[FALSE] --> " + follower + " has not uploaded any story recently!")
+
