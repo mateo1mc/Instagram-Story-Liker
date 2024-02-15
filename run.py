@@ -130,7 +130,7 @@ def like_stories(username, password, usernames):
                 try:
                     # Check if No more Stories and Exit the loop
                     home_button = driver.find_element(By.XPATH, notification_tab__xpath)
-                    print("No more Stories for " + follower)
+                    print("No more Stories for " + follower + 2 * "\n")
                     break
                 except NoSuchElementException:
                     print(15 * "-")
