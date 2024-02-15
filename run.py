@@ -138,3 +138,16 @@ def like_stories(username, password, usernames):
         except NoSuchElementException:
             print("[FALSE] --> " + follower + " has not uploaded any story recently!")
 
+
+if __name__ == "__main__":
+    credentials = load_credentials()
+
+    if credentials is None:
+        username, password = prompt_credentials()
+    else:
+        username, password = credentials
+
+    followers_file = "followers.txt"
+    usernames = read_usernames_from_file(followers_file)
+
+    like_stories(username, password, usernames)
