@@ -38,3 +38,14 @@ def read_usernames_from_file(file_path):
         usernames = [line.strip() for line in file]
     return usernames
 
+
+def check_logged_in(driver):
+    try:
+        # Look for a specific element that indicates the user is logged in
+        driver.find_element(By.XPATH, "//span[text()='Home']")
+        print("Logged In Successfully!")
+        return True
+    except NoSuchElementException:
+        print("!!! NOT Logged In !!!")
+        return False
+
