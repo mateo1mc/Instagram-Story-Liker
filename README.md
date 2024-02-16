@@ -2,6 +2,15 @@
 
 This Python script enables you to automatically like stories on Instagram for a list of specified usernames.
 
+
+## ⚠️ Disclaimer ⚠️
+
+- **This script is for educational purposes only.**
+- **This project is not affiliated with or endorsed by Instagram.** 
+- **Use it responsibly and respect Instagram's terms of service and user privacy.**
+- **Use it at your own risk.**
+
+
 ## Overview
 
 The Instagram Story Liker script offers the following functionalities:
@@ -10,12 +19,14 @@ The Instagram Story Liker script offers the following functionalities:
 - **Like Stories**: Scans the stories of specified usernames and likes them if available.
 - **Notification Handling**: Handles situations where stories are not available or have already been liked.
 
+
 ## Requirements
 
 - Python 3.x
 - Selenium
 - ChromeDriver
 - Webdriver Manager
+
 
 ## Setup Instructions
 
@@ -25,6 +36,7 @@ The Instagram Story Liker script offers the following functionalities:
 4. Create a text file named `followers.txt` containing the list of usernames whose stories you want to like, with each username on a new line.
 5. Run the script by executing the `instagram_story_liker.py` file.
 
+
 ## How to Use
 
 - Run the script by executing python `instagram_story_liker.py`.
@@ -32,10 +44,6 @@ The Instagram Story Liker script offers the following functionalities:
 - The script will scan the stories of the specified usernames and like them if available.
 - Check the console output for status updates and notifications.
 
-## ⚠️ Note ⚠️
-
-- **⚠️This script is for educational purposes only and should be used responsibly.⚠️**
-- Ensure you have a stable internet connection while running the script.
 
 <br>
 <!-- Connect with me -->
