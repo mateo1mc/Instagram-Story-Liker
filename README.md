@@ -31,10 +31,10 @@ The Instagram Story Liker script offers the following functionalities:
 ## Setup Instructions
 
 1. Install Python 3.x.
-2. Install required Python packages using pip: `pip install selenium webdriver-manager`
-3. Download and install `ChromeDriver` according to your Chrome browser version.
+2. Clone or download the repository to your local machine.
+3. Install the required Python packages using pip: `pip install -r requirements.txt`.
 4. Create a text file named `followers.txt` containing the list of usernames whose stories you want to like, with each username on a new line.
-5. Run the script by executing the `instagram_story_liker.py` file.
+5. Ensure you have Google Chrome installed on your machine.
 
 
 ## How to Use
